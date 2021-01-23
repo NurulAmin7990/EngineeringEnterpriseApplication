@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Timetable - Module - Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>All module</h1>
+        <h:form>
+            <h:dataTable value="#{moduleBean.getAllModule()}" var="m" >
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{m.name}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Level</f:facet>
+                    <h:outputText value="#{m.level}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Semester</f:facet>
+                    <h:outputText value="#{m.semester}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton action="#{moduleBean.setUpdateModule(m)}" value="Update"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:button value="Back" outcome="timetabler_index" />
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Timetable - Student - Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>Student</h1>
+        <h2>My details</h2>
+        <h:form>
+            <h:dataTable value="#{studentBean.viewStudent(studentBean.id)}" var="s" >
+                <h:column>
+                    <f:facet name="header">First name</f:facet>
+                    <h:outputText value="#{s.firstName}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Last name</f:facet>
+                    <h:outputText value="#{s.lastName}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Date of birth</f:facet>
+                    <h:outputText value="#{s.dateOfBirth}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{s.email}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h2>My timetable</h2>
+        <h:form>
+            <h:dataTable value="#{classBean.getTimetable(studentBean.id)}" var="c" >
+                <h:column>
+                    <f:facet name="header">Room id</f:facet>
+                    <h:outputText value="#{c.roomId}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Module id</f:facet>
+                    <h:outputText value="#{c.moduleId}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Date</f:facet>
+                    <h:outputText value="#{c.date}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Start time</f:facet>
+                    <h:outputText value="#{c.startTime}">
+                        <f:convertDateTime pattern="HH:mm"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">End time</f:facet>
+                    <h:outputText value="#{c.endTime}">
+                        <f:convertDateTime pattern="HH:mm"/>
+                    </h:outputText>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:button outcome="#{studentBean.logout()}" value="Logout"/>
+    </body>
+</html>

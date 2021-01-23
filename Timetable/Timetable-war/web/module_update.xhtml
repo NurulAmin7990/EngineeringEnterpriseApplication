@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+        <title>Timetable - Module - Update</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>Update module</h1>
+        <h:form> 
+            <h:outputLabel for="name">Name</h:outputLabel>  
+            <h:inputText id="name" a:placeholder="#{moduleBean.moduleDTO.name}" value="#{moduleBean.name}"/><br/>  
+            <h:outputLabel for="level">Level</h:outputLabel>  
+            <h:inputText id="level" a:placeholder="#{moduleBean.moduleDTO.level}" value="#{moduleBean.level}"/><br/> 
+            <h:outputLabel for="semester">Semester</h:outputLabel>  
+            <h:inputText id="semester" a:placeholder="#{moduleBean.moduleDTO.semester}" value="#{moduleBean.semester}"/><br/>  
+            <h:commandButton id="submit-button" value="Submit" action="#{moduleBean.updateModule()}"/> 
+            <h:button value="Cancel" outcome="module_index" />
+        </h:form>  
+    </body>
+</html>

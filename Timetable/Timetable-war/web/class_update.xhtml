@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html     xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core"
+          xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+        <title>Timetable - Class - Update</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>Update class</h1>
+        <h:form>
+            <h:outputText value="#{classBean.classDTO.id}"/><br/>  
+            <h:outputLabel for="roomId">Room ID</h:outputLabel>  
+            <a href="class_update.xhtml"></a>
+            <h:inputText id="roomId" a:placeholder="#{classBean.classDTO.roomId}" value="#{classBean.roomId}"/><br/>  
+            <h:outputLabel for="moduleId">Module ID</h:outputLabel>  
+            <h:inputText id="moduleId" a:placeholder="#{classBean.classDTO.moduleId}" value="#{classBean.moduleId}"/><br/>  
+            <h:outputLabel for="date">Date</h:outputLabel>  
+            <h:inputText id="date" a:placeholder="#{classBean.classDTO.date}" value="#{classBean.date}">
+                <f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:inputText><br/> 
+            <h:outputLabel for="startTime">Start Time</h:outputLabel>  
+            <h:inputText id="startTime" a:placeholder="#{classBean.classDTO.startTime}" value="#{classBean.startTime}">
+                <f:convertDateTime pattern="HH:mm"/>
+            </h:inputText><br/>  
+            <h:outputLabel for="endTime">End Time</h:outputLabel>  
+            <h:inputText id="endTime" a:placeholder="#{classBean.classDTO.endTime}" value="#{classBean.endTime}">
+                <f:convertDateTime pattern="HH:mm"/>
+            </h:inputText><br/>
+            <h:commandButton id="submit-button" value="Submit" action="#{classBean.updateClass()}"/> 
+            <h:button value="Cancel" outcome="class_index" />
+        </h:form>  
+    </body>
+</html>

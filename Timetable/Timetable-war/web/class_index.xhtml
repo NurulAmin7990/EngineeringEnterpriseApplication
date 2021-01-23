@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html     xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Timetable - Class - Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>All class</h1>
+        <h:form>
+            <h:dataTable value="#{classBean.getAllClass()}" var="c" >
+                <h:column>
+                    <f:facet name="header">Room</f:facet>
+                    <h:outputText value="#{c.roomId}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Module</f:facet>
+                    <h:outputText value="#{c.moduleId}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Date</f:facet>
+                    <h:outputText value="#{c.date}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Start</f:facet>
+                    <h:outputText value="#{c.startTime}" >
+                        <f:convertDateTime pattern="HH:mm"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">End</f:facet>
+                    <h:outputText value="#{c.endTime}" >
+                        <f:convertDateTime pattern="HH:mm"/>
+                    </h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton action="#{classBean.setUpdateClass(c)}" value="Update"/>
+                    <h:commandButton action="#{classBean.deleteClass(c.id)}" value="Delete"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:button value="Create" outcome="class_create" />
+        <h:button value="Back" outcome="timetabler_index" />
+    </body>
+</html>

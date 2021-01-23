@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html     xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Timetable - Class - Create</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h1>Create class</h1>
+        <h:form>  
+            <h:outputLabel for="roomId">Room ID</h:outputLabel>  
+            <h:inputText id="roomId" value="#{classBean.roomId}"/><br/>  
+            <h:outputLabel for="moduleId">Module ID</h:outputLabel>  
+            <h:inputText id="moduleId" value="#{classBean.moduleId}"/><br/>  
+            <h:outputLabel for="date">Date</h:outputLabel>  
+            <h:inputText id="date" value="#{classBean.date}">
+                <f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:inputText><br/> 
+            <h:outputLabel for="startTime">Start Time</h:outputLabel>  
+            <h:inputText id="startTime" value="#{classBean.startTime}">
+                <f:convertDateTime pattern="HH:mm"/>
+            </h:inputText><br/>  
+            <h:outputLabel for="endTime">End Time</h:outputLabel>  
+            <h:inputText id="endTime" value="#{classBean.endTime}">
+                <f:convertDateTime pattern="HH:mm"/>
+            </h:inputText><br/>
+            <h:commandButton id="submit-button" value="Submit" action="#{classBean.addClass()}"/> 
+            <h:button value="Cancel" outcome="class_index" />
+        </h:form>  
+    </body>
+</html>
